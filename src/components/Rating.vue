@@ -1,15 +1,17 @@
 <template>
   <div class="row">
     <div
-      v-for="(n, index) in 5" 
+      v-for="(n, index) in max" 
       :key="index"
       class="circle"
-      :class="{ 'circle-filled': n <= rating }"
+      :class="{ 'circle-filled': Math.round(n) <= rating }"
     />
   </div>
 </template>
 
 <script>
+const MAX_RATINGS = 5;
+
 export default {
   name: 'Rating',
 
@@ -17,8 +19,21 @@ export default {
     rating: {
       type: Number,
       required: true,
+      validator: (value) => {
+        const isOver =  Number(value) >= MAX_RATINGS;
+
+        if (isOver) {
+          alert('별점은 1~5 까지 입력할 수 있습니다.');
+        }
+
+        return !isOver;
+      }
     }
   },
+
+  data: () => ({
+    max: MAX_RATINGS
+  }),
 }
 </script>
 
