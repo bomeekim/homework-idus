@@ -25,7 +25,6 @@
         </p>
       </template>
       <template v-slot:actions>
-        <!-- TODO p 태그가 없을 때 rating 컴포넌트 위치 조정 -->
         <rating :rating="Number(3)" />
       </template>
     </card>
@@ -39,11 +38,28 @@
         </p>
       </template>
     </card>
+
+    <card-horizontal>
+      <template v-slot:text>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt consequatur a voluptatem et iste itaque magnam expedita ipsum architecto asperiores debitis ipsa, quibusdam assumenda corporis facilis odit modi repellendus officia!</p>
+      </template>
+      <template v-slot:actions>
+        <!-- // TODO: 배치 -->
+        <div class="row">
+          <rating :rating="Number(3)" />
+          <p>
+            <span class="pipeline"> | </span>
+            <span>John Doe</span>
+          </p>
+        </div>
+      </template>
+    </card-horizontal>
   </div>
 </template>
 
 <script>
 import Card from './components/Card.vue'
+import CardHorizontal from './components/CardHorizontal.vue'
 import Rating from './components/Rating.vue'
 
 export default {
@@ -52,6 +68,7 @@ export default {
   components: { 
     Card, 
     Rating,
+    CardHorizontal
   },
 }
 </script>
@@ -91,5 +108,9 @@ del {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-actions .pipeline {
+  margin: 0 8px;
 }
 </style>
