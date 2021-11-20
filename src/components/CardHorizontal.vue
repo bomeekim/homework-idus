@@ -2,8 +2,9 @@
   <div class="card-horizontal row">
     <div class="col">
       <!-- 이미지 -->
-        <!-- TODO 이미지 비율 유지 IE 10+ -->
-        <img class="card-image" :src="imageUrl" />
+      <div class="card-thumbnail">
+        <img class="card-image" :src="imageUrl" width="100%" height="100%" />
+      </div>
     </div>
     <div class="col">
         <!-- 카드 타이틀 영역 -->
@@ -62,19 +63,30 @@ export default {
 
 <style scoped>
 .col:nth-child(2) {
-  width: 400px;
+  width: 70%;
 }
 
 .card-horizontal {
   box-shadow: 0 3px 1px -2px rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 11%), 0 1px 5px 0 rgb(0 0 0 / 10%);
   border-radius: 1em;
   border: 1px solid lightgrey;
-  height: 220px;
+  display: flex;
+  flex-direction: row;
+  flex: none;
+  flex-basis: 33.33%;
+  box-sizing: border-box;
+  min-width: 80px;
+  margin: 12px;
+}
+
+.card-thumnail {
+  flex: auto;
+  background-color: #dcdcdf;
 }
 
 .card-image {
-  width: 220px;
   border-radius: 1em 0 0 1em;
+  vertical-align: top;
 }
 
 .card-title {
@@ -90,6 +102,6 @@ export default {
 }
 
 .card-actions {
-  padding: 24px 24px 0 24px;
+  padding: 24px;
 }
 </style>

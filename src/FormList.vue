@@ -1,5 +1,5 @@
 <template>
-  <div class="input-list">
+  <div class="form-list">
     <div class="input-default-row">
       <!-- default, typing -->
       <input-form 
@@ -79,9 +79,15 @@ export default {
 </script>
 
 <style>
-.input-list {
+.form-list {
   display: flex;
   flex-direction: column;
+  margin: 12px;
+}
+
+.input-default-row {
+  display: flex;
+  flex-direction: row;
 }
 
 input {
@@ -89,7 +95,6 @@ input {
 }
 
 button {
-  display: inline-block;
   margin: 0 0 12px 4px;
   outline: none;
   cursor: pointer;

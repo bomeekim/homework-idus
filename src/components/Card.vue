@@ -1,8 +1,9 @@
 <template>
   <div class="card">
     <!-- 이미지 -->
-    <!-- TODO 이미지 비율 유지 IE 10+ -->
-    <img class="card-image" :src="imageUrl" />
+    <div class="card-thumnail">
+      <img class="card-image" :src="imageUrl" width="100%" height="100%" />
+    </div>
 
     <!-- 카드 레이블 영역 -->
     <div class="card-label" v-if="label">
@@ -18,6 +19,7 @@
     <div 
       v-if="isExistText" 
       class="card-text"
+      :class="{ 'card-text-boder-bottom-none': !isExistActions }"
     >
       <slot name="text" />
     </div>
@@ -82,12 +84,22 @@ div {
   box-shadow: 0 3px 1px -2px rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 11%), 0 1px 5px 0 rgb(0 0 0 / 10%);
   border-radius: 1em;
   border: 1px solid lightgrey;
-  width: 250px;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  flex-basis: 33.33%;
+  box-sizing: border-box;
+  min-width: 200px;
+}
+
+.card-thumnail {
+  flex: auto;
+  background-color: #dcdcdf;
 }
 
 .card-image {
-  width: inherit;
   border-radius: 1em 1em 0 0;
+  vertical-align: top;
 }
 
 .card-label {
@@ -105,6 +117,10 @@ div {
 .card-text {
   padding: 24px 12px 12px 12px;
   border-bottom: 1px solid lightgrey;
+}
+
+.card-text-boder-bottom-none {
+  border-bottom: none;
 }
 
 .card-actions {
