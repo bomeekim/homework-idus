@@ -16,8 +16,8 @@
     </div>
 
     <!-- 카드 텍스트 영역 -->
-    <div 
-      v-if="isExistText" 
+    <div
+      v-if="isExistText"
       class="card-text"
       :class="{ 'card-text-boder-bottom-none': !isExistActions }"
     >
@@ -25,10 +25,9 @@
     </div>
 
     <!-- 카드 액션 영역 -->
-    <div 
-      v-if="isExistActions" 
+    <div
+      v-if="isExistActions"
       class="card-actions"
-      :class="{ 'card-actions-mx-3-my-4': !isRatingWithTextBox }"
     >
       <slot name="actions" />
     </div>
@@ -127,6 +126,7 @@ div {
   padding: 12px;
   align-items: center;
   display: flex;
+  min-height: 40px;
 }
 
 .card-actions-mx-3-my-4 {

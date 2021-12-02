@@ -67,8 +67,8 @@ import Rating from './components/Rating.vue'
 export default {
   name: 'CardList',
 
-  components: { 
-    Card, 
+  components: {
+    Card,
     Rating,
     CardHorizontal
   },
@@ -91,7 +91,7 @@ export default {
 
 .vertical-card-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .horizontal-card-wrapper {
@@ -114,7 +114,7 @@ del {
 }
 
 .card-actions > .rating-with-text-box {
-  width: -webkit-fill-available;
+  width: 100%;
 }
 
 .card-actions > .rating-with-text-box p {
